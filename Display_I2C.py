@@ -143,18 +143,19 @@ I2C_List =["48: SENSE ADC",
            "29: SENSE COLOR",
            "3F: BUTTON SHIM",
            "50: DISPLAY",
-           "36: BATTERY"]
+           "36: BATTERY",
+           "74; 5X5 RGB LED"]
 n=0
 for x1 in range(len(main1)):
   for x2 in range(len(I2C_List)):
     temp=I2C_List[x2]
     temp=temp[0:2]
-    space=11
+    space=10
     if main1[x1]==I2C_List[x2][0:2]:   #len(I2C_List[x2])*8
-      draw.rectangle((32-2, n*space+1, 30+150, n*space+11), fill=inky_display.RED, outline=inky_display.BLACK)
+      draw.rectangle((32-2, n*space-1, 30+150, n*space+10), fill=inky_display.RED, outline=inky_display.BLACK)
       #istring(30,00+n*8,I2C_List[x2],inky_display.WHITE,inky_display.WHITE)
-      istring(32,n*space+3,I2C_List[x2][:4],inky_display.WHITE,inky_display.WHITE)
-      font = ImageFont.truetype(FredokaOne, 12)
+      istring(32,n*space,I2C_List[x2][:4],inky_display.WHITE,inky_display.WHITE)
+      font = ImageFont.truetype(FredokaOne, 11)
       draw.text((55, n*space-2), I2C_List[x2][4:], inky_display.WHITE, font=font)
 
       n+=1
