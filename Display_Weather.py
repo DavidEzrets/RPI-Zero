@@ -139,33 +139,33 @@ def icone(x,y,icon):
   #draw.rectangle((0, 0, 40, 45), fill=inky_display.BLACK, outline=inky_display.RED)
   if icon=='01':
   #clear sky - 01
-    img.paste(Image.open('inky/icon-sun.png'), (x, y), create_mask(Image.open('inky/icon-sun.png')))
+    img.paste(Image.open('/home/pi/main/inky/icon-sun.png'), (x, y), create_mask(Image.open('/home/pi/main/inky/icon-sun.png')))
   
   elif icon=='02':
   #few clouds - 02
-    img.paste(Image.open('inky/icon-cloud.png'), (x, y), create_mask(Image.open('inky/icon-cloud.png')))  
+    img.paste(Image.open('/home/pi/main/inky/icon-cloud.png'), (x, y), create_mask(Image.open('/home/pi/main/inky/icon-cloud.png')))  
 
   elif icon=='03' or icon=='04':
   #scattered clouds + broken clouds - 03 04
-    img.paste(Image.open('inky/icon-rain.png'), (x-2, y+5), create_mask(Image.open('inky/icon-rain.png')))
+    img.paste(Image.open('/home/pi/main/inky/icon-rain.png'), (x-2, y+5), create_mask(Image.open('/home/pi/main/inky/icon-rain.png')))
     draw.rectangle((x+14, y+29, x+28, y+45), fill=inky_display.BLACK, outline=inky_display.BLACK)
   
   elif icon=='09':
   #shower rain - 09
-    img.paste(Image.open('inky/icon-rain.png'), (x-2, y), create_mask(Image.open('inky/icon-rain.png'))) 
+    img.paste(Image.open('/home/pi/main/inky/icon-rain.png'), (x-2, y), create_mask(Image.open('/home/pi/main/inky/icon-rain.png'))) 
   
   elif icon=='10':
   #rain - 10
-    img.paste(Image.open('inky/icon-rain.png'), (x-7, y+5), create_mask(Image.open('inky/icon-rain.png')))  
-    img.paste(Image.open('inky/icon-cloud.png'), (x-1, y-7), create_mask(Image.open('inky/icon-cloud.png')))
+    img.paste(Image.open('/home/pi/main/inky/icon-rain.png'), (x-7, y+5), create_mask(Image.open('/home/pi/main/inky/icon-rain.png')))  
+    img.paste(Image.open('/home/pi/main/inky/icon-cloud.png'), (x-1, y-7), create_mask(Image.open('/home/pi/main/inky/icon-cloud.png')))
   
   elif icon=='11':
   #thunderstorm 11
-    img.paste(Image.open('inky/icon-storm.png'), (x-2, y), create_mask(Image.open('inky/icon-storm.png'))) 
+    img.paste(Image.open('/home/pi/main/inky/icon-storm.png'), (x-2, y), create_mask(Image.open('/home/pi/main/inky/icon-storm.png'))) 
   
   elif icon=='13':
   #snow - 13
-    img.paste(Image.open('inky/icon-snow.png'), (x-2, y), create_mask(Image.open('inky/icon-snow.png'))) 
+    img.paste(Image.open('/home/pi/main/inky/icon-snow.png'), (x-2, y), create_mask(Image.open('/home/pi/main/inky/icon-snow.png'))) 
   
   elif icon=='50':
   #mist - 50
@@ -215,7 +215,7 @@ def weather(X,Y,city):
     istring (X,Y+1,weather_data['name'].split(' ')[0][0:1],inky_display.WHITE,inky_display.WHITE)
   if weather_data['name'] == 'Netanya':
     istring (X,Y+1,weather_data['name'].split(' ')[0][0:1],inky_display.WHITE,inky_display.WHITE)
-  if weather_data['name'] == 'Eilat':
+  if weather_data['name'] == 'Herzliya':
     istring (X,Y+1,weather_data['name'].split(' ')[0][0:1],inky_display.WHITE,inky_display.WHITE)
 
   draw.rectangle((X0-33, Y0-20, X0-2, Y0), fill=inky_display.WHITE, outline=inky_display.WHITE)
@@ -275,7 +275,7 @@ draw.line((104, 0, 104, 200))
 weather (0,0,'6693674')
 weather (107,0,'293397')
 weather (0,53,'294071')
-weather (107,53,'295277')
+weather (107,53,'294778') #Eilat: 295277
 
 
 
