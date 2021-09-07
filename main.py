@@ -160,6 +160,11 @@ def hold_handler(button):
 
 while EE==0:
   time.sleep(1)
+  
+  
+  
+#os.system ("sudo shutdown -h now") #----------------------------------------------
+  
 #  if A==0 and B==0 and C==0:
 #    print ('not pressed')
   

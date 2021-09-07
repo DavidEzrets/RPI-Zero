@@ -152,7 +152,7 @@ for x1 in range(len(main1)):
     temp=temp[0:2]
     space=10
     if main1[x1]==I2C_List[x2][0:2]:   #len(I2C_List[x2])*8
-      draw.rectangle((32-2, n*space-1, 30+150, n*space+10), fill=inky_display.RED, outline=inky_display.BLACK)
+      draw.rectangle((32-2, n*space-1, 30+150-13, n*space+10), fill=inky_display.RED, outline=inky_display.BLACK)
       #istring(30,00+n*8,I2C_List[x2],inky_display.WHITE,inky_display.WHITE)
       istring(32,n*space,I2C_List[x2][:4],inky_display.WHITE,inky_display.WHITE)
       font = ImageFont.truetype(FredokaOne, 11)
@@ -160,6 +160,11 @@ for x1 in range(len(main1)):
 
       n+=1
 
+#istring(22,5,str(len(main1)),inky_display.WHITE,inky_display.RED)
+font = ImageFont.truetype(FredokaOne, 50)
+draw.text((170, -2), str(len(main1)), inky_display.RED, font=font)
+font = ImageFont.truetype(FredokaOne, 40)
+draw.text((173, 3), str(len(main1)), inky_display.WHITE, font=font)
 
 istring(10,95,str(inky_display.resolution[0]) + ' x ' + str(inky_display.resolution[1]),inky_display.BLACK,inky_display.RED)
 
