@@ -6,7 +6,7 @@ import os
 import time
 import sys
 import pickle
-
+from rgbmatrix5x5 import RGBMatrix5x5
 
 
 print("""
@@ -31,7 +31,15 @@ global BB; BB=0
 global CC; CC=0
 global DD; DD=0
 global EE; EE=0
+
 buttonshim.set_pixel(0x00, 0x00, 0x00)
+
+rgbmatrix5x5 = RGBMatrix5x5()
+rgbmatrix5x5.set_all(0x00, 0x00, 0xFF) #rgb
+rgbmatrix5x5.show()
+time.sleep(2)
+rgbmatrix5x5.set_all(0x00, 0x00, 0x00) #rgb
+rgbmatrix5x5.show()
 
 button_was_held = False
 
