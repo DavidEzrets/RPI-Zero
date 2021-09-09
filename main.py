@@ -9,17 +9,7 @@ import pickle
 from rgbmatrix5x5 import RGBMatrix5x5
 
 
-print("""
-Buttom SHIM: Long Press
-
-Demonstrates how you might handle both a
-short and long press on the same button.
-
-Press or hold the A button.
-
-Press Ctrl+C to exit!
-
-""")
+print("main start")
 
 global A; A=0
 global B; B=0
@@ -63,8 +53,7 @@ def hold_handler(button):
     button_was_held = True
     buttonshim.set_pixel(0x00, 0x00, 0xff)
     os.system ("sudo python3 /home/pi/main/Display_I2C.py")
-    time.sleep(1)
-    buttonshim.set_pixel(0x00, 0x00, 0x00)      
+    time.sleep(1); buttonshim.set_pixel(0x00, 0x00, 0x00)     
     global AA; AA=1
 
 @buttonshim.on_press(buttonshim.BUTTON_B)
@@ -86,8 +75,7 @@ def hold_handler(button):
     button_was_held = True
     buttonshim.set_pixel(0x00, 0x00, 0xff)
     os.system ("sudo python3 /home/pi/main/Display_Sense.py")
-    time.sleep(1)
-    buttonshim.set_pixel(0x00, 0x00, 0x00) 
+    time.sleep(1); buttonshim.set_pixel(0x00, 0x00, 0x00) 
     global BB; BB=1 
 
 @buttonshim.on_press(buttonshim.BUTTON_C)
@@ -111,8 +99,7 @@ def hold_handler(button):
     buttonshim.set_pixel(0x00, 0x00, 0xff)
     print ('Begin')
     os.system ("sudo python3 /home/pi/main/Display-Calendar.py")
-    time.sleep(1)
-    buttonshim.set_pixel(0x00, 0x00, 0x00)
+    time.sleep(1); buttonshim.set_pixel(0x00, 0x00, 0x00)
     global CC; CC=1
     print ('End')
 
@@ -137,8 +124,7 @@ def hold_handler(button):
     buttonshim.set_pixel(0x00, 0x00, 0xff)
     print ('Begin')
     os.system ("sudo python3 /home/pi/main/Display_Weather.py")
-    time.sleep(1)
-    buttonshim.set_pixel(0x00, 0x00, 0x00)
+    time.sleep(1); buttonshim.set_pixel(0x00, 0x00, 0x00) 
     global DD; DD = 1;
     
 @buttonshim.on_press(buttonshim.BUTTON_E)
@@ -152,26 +138,30 @@ def press_handler(button, pressed):
 @buttonshim.on_release(buttonshim.BUTTON_E)
 def release_handler(button, pressed):
     if not button_was_held:
-      endp = 1
-      buttonshim.set_pixel(0x00, 0x00, 0x00)
-      global E; E=1   
+        buttonshim.set_pixel(0x00, 0x00, 0x00)
+        global E; E=1   
 
 @buttonshim.on_hold(buttonshim.BUTTON_E, hold_time=2)
 def hold_handler(button):
     global button_was_held
     button_was_held = True
     buttonshim.set_pixel(0xff, 0x00, 0x00)
-    time.sleep(1)
-    buttonshim.set_pixel(0x00, 0x00, 0x00) 
+    os.system ("sudo shutdown -h now")
+    rgbmatrix5x5 = RGBMatrix5x5(); rgbmatrix5x5.set_all(0xFF,0,0); rgbmatrix5x5.show(); time.sleep(1); rgbmatrix5x5.set_all(0,0,0); rgbmatrix5x5.show()
+    time.sleep(1); buttonshim.set_pixel(0x00, 0x00, 0x00) 
     global EE; EE=1
     
 
-while EE==0:
-  time.sleep(1)
+while E==0:
+   time.sleep(1)
+
+
+rgbmatrix5x5 = RGBMatrix5x5(); rgbmatrix5x5.set_all(0,0xFF,0); rgbmatrix5x5.show(); time.sleep(1); rgbmatrix5x5.set_all(0,0,0); rgbmatrix5x5.show()  
   
+ #----------------------------------------------
   
-  
-#os.system ("sudo shutdown -h now") #----------------------------------------------
+
+
   
 #  if A==0 and B==0 and C==0:
 #    print ('not pressed')
